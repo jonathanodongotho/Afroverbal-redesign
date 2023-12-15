@@ -1,0 +1,308 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.form-control:focus, .navbar-toggler:focus {
+    border-color: none;
+    box-shadow: none;
+}
+
+.navbar{
+    background: transparent;
+    z-index: 100;
+    border-bottom: solid rgb(104, 104, 104) 1px;
+}
+.menu-bar{
+    display: flex;
+    justify-content: end;
+    padding: 0;
+}
+.menu-bar .bar-item{
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.menu-bar .bar-item .bar{
+    width: 2rem;
+    height: 4px;
+    background: rgb(224, 224, 224);
+    content: '';
+    margin: 1.5px 0;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+}
+.menu-bar .bar-item.cross .bar-one{
+    transform: rotate(45deg) translateX(5px) translateY(5px);
+
+}
+.menu-bar .bar-item.cross .bar-two{
+    transform: translateX(15px);
+    opacity: 0;
+
+}
+.menu-bar .bar-item.cross .bar-three{
+    transform: rotate(-45deg) translateX(5px) translateY(-5px);
+
+}
+
+.menu-wrapper .menu .nav-link{
+    font-weight: bold;
+    color: rgb(201, 201, 201);
+    padding: .5rem;
+}
+.menu-wrapper .sub-menu .nav-link{
+    color: rgb(255, 144, 70);
+    padding: .1rem .6rem;
+}
+.menu-wrapper .menu .nav-link:hover{
+    background: rgb(172, 172, 172);
+    color: rgb(85, 85, 85);
+}
+.menu-wrapper .sub-menu .nav-link:hover{
+    background: rgb(214, 214, 214);
+    color: rgb(190, 115, 54);
+}
+.intro{
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+    background: linear-gradient(rgb(31, 27, 53),rgb(44, 38, 80), rgb(52, 189, 121));
+}
+.intro .intro-layer-one img{
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+}
+.intro .intro-layer-two img{
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+}
+.intro h2{
+    color: rgb(238, 238, 238);
+}
+.intro h6{
+    color: rgb(212, 212, 212);
+}
+.intro .date_added{
+    color: rgb(245, 90, 0);
+    font-weight: bold;
+}
+.intro .intro-layer-two .date_added{
+    color: rgb(167, 167, 167);
+    font-weight: bold;
+}
+.intro .intro-layer-one .context{
+    background: red;
+}
+.intro .intro-layer-two{
+    justify-content: space-between;
+}
+.intro .intro-layer-two .layer-two-item{
+    padding: .5rem;
+    width: 18rem;
+    transition: all .2s ease-in-out;
+}
+.intro .intro-layer-two .layer-two-item:hover{
+    box-shadow: 0 0 10px;
+}
+.intro .intro-layer-two .layer-two-item .layer-two-item-link{
+    color: rgb(255, 255, 255);
+}
+.intro .intro-layer-two .context{
+    background: ;
+    border: ;
+}
+main .insight{
+    font-weight: bold;
+}
+.mini-gallery-item{
+    margin: 1rem 0;
+    transition: all .2s ease-in-out;
+}
+.mini-gallery-item:hover{
+    box-shadow: 0 0 10px;
+}
+.mini-gallery img{
+    width: 15rem;
+    height: 10rem;
+    margin: 1px;
+}
+.mini-gallery .context{
+    color: rgb(153, 153, 153);
+    border-bottom: 2px solid rgb(153, 153, 153);
+    
+}
+.mini-gallery .read-more{
+    color: red;
+    transition: all .2s ease-in-out;
+}
+.mini-gallery .read-more:hover{
+    color: rgb(255, 255, 255);
+    background: red;
+    padding: ;
+}
+.latest .latest-items .latest-item{
+    background: url(/Assets/Images/black.avif);
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: ;
+    justify-content: center;
+    background-size: cover;
+    transition: all .2s ease-in-out;
+    margin: 10px 0;
+}
+.latest .latest-items .latest-item h6{
+    background: rgba(48, 45, 36, 0.281);
+    padding: 0 .5rem;
+    color: rgb(175, 175, 175);
+    
+}
+.latest .latest-items .latest-item:hover{
+    box-shadow: 0 0 8px;
+}
+
+footer{
+    position: ;
+    bottom: ;
+}
+
+
+@media screen and (max-width: 991px) {
+    .menu-wrapper{
+        background: rgb(255, 255, 255);
+        position: absolute;
+        top: 3.09rem;
+        transition: all .3s ease-in-out;
+        transform: translateX(-65rem);
+    }
+    .menu-wrapper.cross{
+        transform: translateX(0);
+        
+    }
+    input.search{
+        background: rgb(255, 245, 240);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .inner-menu-wrapper{
+        width: 40%;
+    }
+    .intro .intro-layer-one img{
+        width: 100%;
+        height: 25rem;
+        object-fit: cover;
+    }
+    .intro .intro-layer-two img{
+        width: 100%;
+        height: 10rem;
+        object-fit: cover;
+    }
+    .intro .intro-layer-two .layer-two-item{
+        width: 50%;
+    }
+    
+}
+@media screen and (max-width: 768px){
+    .inner-menu-wrapper{
+        width: 50%;
+    }
+    .carousel-caption{
+        bottom: 8rem;
+    }
+    .intro .intro-layer-two .layer-two-item{
+        
+    }
+    .intro .intro-layer-one img{
+        width: 100%;
+        height: 25rem;
+        object-fit: cover;
+    }
+    .intro .intro-layer-two img{
+        width: 100%;
+        height: 10rem;
+        object-fit: cover;
+    }
+    .intro .intro-layer-two .layer-two-item{
+        width: ;
+    }
+
+}
+@media screen and (max-width: 425px){
+    .inner-menu-wrapper{
+        width: 80%;
+    }
+    .carousel-caption{
+        bottom: 7rem;
+    }
+    .intro .intro-layer-one img{
+        width: 100%;
+        height: 16rem;
+        object-fit: cover;
+    }
+    .intro .intro-layer-two img{
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+    }
+    .intro .intro-layer-two .layer-two-item{
+        width: 80%;
+        justify-content: center;
+    }
+    .intro .intro-layer-two{
+        justify-content: center;
+    }
+    .intro .intro-layer-two .layer-two-item{
+        width: 100%;
+    }
+    .mini-gallery .mini-gallery-item{
+
+    }
+    .mini-gallery-item:hover{
+        box-shadow: none;
+    }
+
+}
+@media screen and (max-width: 375px){
+    .inner-menu-wrapper{
+        width: 100%;
+    }
+    .intro .intro-layer-one img{
+        width: 100%;
+        height: ;
+        object-fit: cover;
+    }
+    .intro .intro-layer-two img{
+        width: 100%;
+        height: ;
+        object-fit: cover;
+    }
+
+}
+@media screen and (max-width: 320px){
+    .inner-menu-wrapper{
+        width: 100%;
+    }
+    .intro .intro-layer-one img{
+        width: 100%;
+        height: ;
+        object-fit: cover;
+    }
+    .intro .intro-layer-two img{
+        width: 100%;
+        height: 8rem;
+        object-fit: cover;
+    }
+
+}
+@media screen and (min-width: 1441px){
+
+}
