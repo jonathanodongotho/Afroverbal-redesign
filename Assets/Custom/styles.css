@@ -167,11 +167,15 @@ main .insight{
 .latest .latest-items .latest-item:hover{
     box-shadow: 0 0 8px;
 }
+.detail img{
+    width: 100%
+}
 
 footer{
     position: ;
     bottom: ;
 }
+
 
 
 @media screen and (max-width: 991px) {
