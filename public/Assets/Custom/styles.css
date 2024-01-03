@@ -124,7 +124,8 @@
     transition: all .2s ease-in-out;
 }
 .intro .intro-layer-two .layer-two-item:hover{
-    box-shadow: 0 0 10px;
+    /* box-shadow: 0 0 10px; */
+    
 }
 .intro .intro-layer-two .layer-two-item .layer-two-item-link{
     color: rgb(255, 255, 255);
@@ -141,7 +142,7 @@ main .insight{
     transition: all .2s ease-in-out;
 }
 .mini-gallery-item:hover{
-    box-shadow: 0 0 10px;
+    /* box-shadow: 0 0 10px; */
 }
 .mini-gallery img{
     width: 15rem;
