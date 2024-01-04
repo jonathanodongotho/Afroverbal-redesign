@@ -17,6 +17,26 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 
+    /* -----------------insight control-------------------- */
+
+    var insightText = [
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, mollitia.',
+        'consectetur adipisicing elit. Lorem ipsum dolor sit amet Delectus, mollitia.',
+        'Delectus, mollitia Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    ];
+
+    var currentIndex = 0;
+
+    var insight = document.getElementById('insight');
+
+    function updateInsight(){
+
+        insight.textContent = insightText[currentIndex];
+        currentIndex = (currentIndex + 1) % insightText.length;
+    }
+    setInterval(updateInsight, 3000);
+
+
     /* --------------scroll control-------------- */
     /* function scrollControl() {
         let offs = window.scrollY;

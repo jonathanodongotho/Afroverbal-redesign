@@ -4,6 +4,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+.hidden > div:nth-child(2){
+    display: none !important;
+}
+.pag_container nav .pag_link{
+    display: inline-block;
+}
+.pag_container nav div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .form-control:focus, .navbar-toggler:focus {
     border-color: none;
     box-shadow: none;
@@ -105,6 +116,15 @@
 .intro .intro-layer-one .context:hover{
     background: rgb(255, 255, 255);
     color: red;
+}
+.intro .intro-layer-one .tribe{
+    background: rgb(255, 153, 0);
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+.intro .intro-layer-one .tribe:hover{
+    background: rgb(255, 255, 255);
+    color: rgb(255, 153, 0);
 }
 .intro .intro-layer-one .more{
     background: rgb(233, 233, 233);

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('signups', function (Blueprint $table) {
             $table->id();
+            $table->string('user_name');
+            $table->string('user_email');
             $table->timestamps();
         });
     }

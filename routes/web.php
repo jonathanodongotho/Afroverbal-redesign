@@ -23,7 +23,7 @@ Route::get('/', HomePage::class);
 
 Route::get('/proverbs', AllProverbs::class);
 
-Route::get('/proverbs/sample-slug', DatailsPage::class);
+Route::get('/proverb/sample-slug', DatailsPage::class);
 
 Route::get('/search', SearchPage::class);
 
