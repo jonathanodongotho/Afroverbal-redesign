@@ -301,25 +301,9 @@
                 </a>
 
             </div>
-            <div class="signup p-3">
-                <div>
-                    <small class="text-danger">Sign up with us to get notified about our latest posts</small>
-                </div>
-                <form class="d-flex flex-column" role="search">
-                    <div class="py-1">
-                        <label for="name">Name</label>
-                        <input class="form-control search" name="name" type="text" placeholder="Enter your name...">
-                    </div>
-                    <div class="py-1">
-                        <label for="email">Email</label>
-                        <input class="form-control search" name="emai" type="email" placeholder="Enter your email address...">
-                    </div>
-                    <div class="py-1">
-                        <button type="submit" class="btn bg-primary btn-sm text-light">Sign up</button>
-                    </div>
-                </form>
-                
-            </div>
+
+            <x-partials._signup />
+            
         </div>
     </div>
 </div>

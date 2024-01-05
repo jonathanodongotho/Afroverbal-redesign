@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AdminHome;
 use App\Livewire\HomePage;
 use App\Livewire\AllProverbs;
 use App\Livewire\DatailsPage;
@@ -28,6 +29,8 @@ Route::get('/proverb/sample-slug', DatailsPage::class);
 Route::get('/search', SearchPage::class);
 
 Route::get('/privacy', PrivacyPage::class);
+
+Route::get('/admin', AdminHome::class);
 
 /* Route::get('/dashboard', function () {
     return view('dashboard');
