@@ -7,13 +7,26 @@
 .hidden > div:nth-child(2){
     display: none !important;
 }
-.pag_container nav .pag_link{
-    display: inline-block;
+.pag_container nav span{
+    padding: .2rem .8rem !important;
+    text-decoration: none;
+    margin: 0.3rem;
+    border-radius: 15px;
+    color: rgb(70, 70, 70);
 }
-.pag_container nav div{
+.pag_container nav a{
+    padding: .2rem .8rem !important;
+    text-decoration: none;
+    margin: 0.3rem;
+    border-radius: 15px;
+    color: rgb(0, 162, 255);
+    content: "prev" !important;
+}
+.pag_container nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: rgb(206, 206, 206);
 }
 .form-control:focus, .navbar-toggler:focus {
     border-color: none;

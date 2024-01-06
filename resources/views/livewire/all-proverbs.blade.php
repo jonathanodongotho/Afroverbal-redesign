@@ -82,171 +82,76 @@
             </div>
         </div>
     </div>
-    <div class="col-12 d-flex flex-wrap p-3 bg-light">
-        <div class="col-8 d-flex justify-content-around align-items-center">
-            <span>All</span><span>Dropdown 1</span><span>Dropdown 2</span>
+    <div class="col-12 d-flex flex-wrap px-3 pt-3 bg-light">
+        <div class="col-12 col-md-6 d-flex justify-content-between align-items-center">
+            <span>
+                <a href="{{ url('/proverbs') }}" class="btn rounded-0 btn-sm px-3 btn-secondary">All</a>
+            </span>
+            <span>
+                <div class="dropdown">
+                    <button class="btn rounded-0 btn-secondary dropdown-toggle btn-sm px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tribes
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach($tribes as $tribe)
+                            <li><a class="dropdown-item" href="{{ url('/proverbs/tribes', ['tribe' => $tribe->tribe_name]) }}">{{ $tribe->tribe_name }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </span>
+            <span>
+                <div class="dropdown">
+                    <button class="btn rounded-0 btn-secondary dropdown-toggle btn-sm px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Contexts
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach($contexts as $context)
+                            <li><a class="dropdown-item" href="{{ url('/proverbs/contexts', ['context' => $context->context_name]) }}">{{ $context->context_name }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </span>
         </div>
     </div>
     <div class="d-flex flex-wrap">
         <div class="col-12 col-md-8 mini-gallery px-3">
-            <div class="mini-gallery-item d-flex flex-column flex-lg-row">
-                <div class="">
-                    <img src="Assets/Images/black.avif" alt="">
-                </div>
-                <div class="px-lg-3">
-                    <div>
-                        <a href="" class="btn py-0 px-2 btn-sm context rounded-0">LIFE</a>
+            @foreach($proverbs as $proverb)
+                <div class="mini-gallery-item d-flex flex-column flex-lg-row">
+                    <div class="">
+                        <img src="Assets/Images/black.avif" alt="">
                     </div>
-                    <div class="py-1">
-                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quas?</h6>
-                    </div>
-                    <div>
-                        <small>
-                            <span class="">
-                                <i class="bi bi-person"></i>
-                                <span>jonathan</span>
-                            </span>
-                            <span class="px-3">
-                                <i class="bi bi-clock"></i>
-                                <span>2 days ago</span>
-                            </span>
-                        </small>
-                    </div>
-                    <div>
-                        <p class="layer-two-item-link">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, nemo.</p>
-                    </div>
-                    <div>
-                        <a href="" class="px-1 btn btn-sm read-more rounded-0"><b>READ MORE <i class="bi bi-arrow-right"></i></b></a>
-                    </div>
-                </div>
-            </div>
-            <div class="mini-gallery-item d-flex flex-column flex-lg-row">
-                <div class="">
-                    <img src="Assets/Images/black.avif" alt="">
-                </div>
-                <div class="px-lg-3">
-                    <div>
-                        <a href="" class="btn py-0 px-2 btn-sm context rounded-0">LIFE</a>
-                    </div>
-                    <div class="py-1">
-                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quas?</h6>
-                    </div>
-                    <div>
-                        <small>
-                            <span class="">
-                                <i class="bi bi-person"></i>
-                                <span>jonathan</span>
-                            </span>
-                            <span class="px-3">
-                                <i class="bi bi-clock"></i>
-                                <span>2 days ago</span>
-                            </span>
-                        </small>
-                    </div>
-                    <div>
-                        <p class="layer-two-item-link">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, nemo.</p>
-                    </div>
-                    <div>
-                        <a href="" class="px-1 btn btn-sm read-more rounded-0"><b>READ MORE <i class="bi bi-arrow-right"></i></b></a>
+                    <div class="px-lg-3">
+                        <div>
+                            <a href="" class="btn py-0 px-2 btn-sm context rounded-0">{{ $proverb->context->context_name }}</a>
+                        </div>
+                        <div class="py-1">
+                            <h6>{{ $proverb->proverb_text }}</h6>
+                        </div>
+                        <div>
+                            <small>
+                                <span class="">
+                                    <i class="bi bi-person"></i>
+                                    <span>{{ $proverb->author }}</span>
+                                </span>
+                                <span class="px-3">
+                                    <i class="bi bi-clock"></i>
+                                    <span>{{ $proverb->created_at->diffForHumans() }}</span>
+                                </span>
+                            </small>
+                        </div>
+                        <div>
+                            <p class="layer-two-item-link">{{ $proverb->proverb_translation }}</p>
+                        </div>
+                        <div>
+                            <a href="{{ url('/proverb', ['slug' => $proverb->slug]) }}" class="px-1 btn btn-sm read-more rounded-0"><b>READ MORE <i class="bi bi-arrow-right"></i></b></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="mini-gallery-item d-flex flex-column flex-lg-row">
-                <div class="">
-                    <img src="Assets/Images/black.avif" alt="">
-                </div>
-                <div class="px-lg-3">
-                    <div>
-                        <a href="" class="btn py-0 px-2 btn-sm context rounded-0">LIFE</a>
-                    </div>
-                    <div class="py-1">
-                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quas?</h6>
-                    </div>
-                    <div>
-                        <small>
-                            <span class="">
-                                <i class="bi bi-person"></i>
-                                <span>jonathan</span>
-                            </span>
-                            <span class="px-3">
-                                <i class="bi bi-clock"></i>
-                                <span>2 days ago</span>
-                            </span>
-                        </small>
-                    </div>
-                    <div>
-                        <p class="layer-two-item-link">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, nemo.</p>
-                    </div>
-                    <div>
-                        <a href="" class="px-1 btn btn-sm read-more rounded-0"><b>READ MORE <i class="bi bi-arrow-right"></i></b></a>
-                    </div>
-                </div>
-            </div>
-            <div class="mini-gallery-item d-flex flex-column flex-lg-row">
-                <div class="">
-                    <img src="Assets/Images/black.avif" alt="">
-                </div>
-                <div class="px-lg-3">
-                    <div>
-                        <a href="" class="btn py-0 px-2 btn-sm context rounded-0">LIFE</a>
-                    </div>
-                    <div class="py-1">
-                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quas?</h6>
-                    </div>
-                    <div>
-                        <small>
-                            <span class="">
-                                <i class="bi bi-person"></i>
-                                <span>jonathan</span>
-                            </span>
-                            <span class="px-3">
-                                <i class="bi bi-clock"></i>
-                                <span>2 days ago</span>
-                            </span>
-                        </small>
-                    </div>
-                    <div>
-                        <p class="layer-two-item-link">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, nemo.</p>
-                    </div>
-                    <div>
-                        <a href="" class="px-1 btn btn-sm read-more rounded-0"><b>READ MORE <i class="bi bi-arrow-right"></i></b></a>
-                    </div>
-                </div>
-            </div>
-            <div class="mini-gallery-item d-flex flex-column flex-lg-row">
-                <div class="">
-                    <img src="Assets/Images/black.avif" alt="">
-                </div>
-                <div class="px-lg-3">
-                    <div>
-                        <a href="" class="btn py-0 px-2 btn-sm context rounded-0">LIFE</a>
-                    </div>
-                    <div class="py-1">
-                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quas?</h6>
-                    </div>
-                    <div>
-                        <small>
-                            <span class="">
-                                <i class="bi bi-person"></i>
-                                <span>jonathan</span>
-                            </span>
-                            <span class="px-3">
-                                <i class="bi bi-clock"></i>
-                                <span>2 days ago</span>
-                            </span>
-                        </small>
-                    </div>
-                    <div>
-                        <p class="layer-two-item-link">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, nemo.</p>
-                    </div>
-                    <div>
-                        <a href="" class="px-1 btn btn-sm read-more rounded-0"><b>READ MORE <i class="bi bi-arrow-right"></i></b></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
-            <div class="py-3">
-                pagination
+            <div class="pag_container py-2">
+                <span  class="pag_link">{{ $proverbs->links() }}</span>
+                
             </div>
         </div>
         <div class="col-12 col-md-4 latest pt-2">

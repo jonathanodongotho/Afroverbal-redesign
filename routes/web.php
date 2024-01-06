@@ -1,11 +1,13 @@
 <?php
 
 use App\Livewire\AdminHome;
+use App\Livewire\ContextPage;
 use App\Livewire\HomePage;
 use App\Livewire\AllProverbs;
 use App\Livewire\DatailsPage;
 use App\Livewire\PrivacyPage;
 use App\Livewire\SearchPage;
+use App\Livewire\TribesPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -25,6 +27,10 @@ Route::get('/', HomePage::class);
 Route::get('/proverbs', AllProverbs::class);
 
 Route::get('/proverb/sample-slug', DatailsPage::class);
+
+Route::get('/proverbs/tribes/{tribe}', TribesPage::class);
+
+Route::get('/proverbs/contexts/{context}', ContextPage::class);
 
 Route::get('/search', SearchPage::class);
 
