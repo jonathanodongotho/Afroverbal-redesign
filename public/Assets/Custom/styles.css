@@ -22,6 +22,14 @@
     color: rgb(0, 162, 255);
     content: "prev" !important;
 }
+.pag_container nav button{
+    padding: .2rem .8rem !important;
+    text-decoration: none;
+    margin: 0.3rem;
+    border-radius: 15px;
+    color: rgb(0, 162, 255);
+    content: "prev" !important;
+}
 .pag_container nav{
     display: flex;
     justify-content: space-between;
@@ -36,7 +44,17 @@
 .navbar{
     background: transparent;
     z-index: 100;
-    border-bottom: solid rgb(104, 104, 104) 1px;
+    border-bottom: solid rgb(199, 199, 199) .7px;
+}
+.navbar img{
+    height: 3.5rem;
+}
+.navbar .sub-menu{
+    display:flex !important;
+    align-items: center;
+}
+.navbar form{
+    height: 2rem;
 }
 .menu-bar{
     display: flex;

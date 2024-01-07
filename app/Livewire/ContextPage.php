@@ -9,9 +9,13 @@ use App\Models\Proverb;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
+use Livewire\WithPagination;
 
 class ContextPage extends Component
 {
+
+    use WithPagination;
+
     #[Title('sort by context')]
 
     #[Validate('required|string|min:3|max:25')]
@@ -43,9 +47,16 @@ class ContextPage extends Component
         return $context->id;
     }
 
+    public $partcontext;
+
+    public function mount($context)
+    {
+        $this->partcontext = $context;
+    }
+
     public function render()
     {
-        $proverbs = Proverb::select('proverb_text', 'proverb_translation', 'context_id', 'tribe_id', 'created_at', 'author')
+        $proverbs = Proverb::select('proverb_text', 'proverb_translation', 'context_id', 'tribe_id', 'created_at', 'author', 'slug')
         ->where('tribe_id', $this->getContextId())
         ->simplePaginate(5);
 
@@ -53,7 +64,7 @@ class ContextPage extends Component
 
         $contexts = Context::all();
 
-        $trendings = Proverb::select('proverb_text', 'created_at',)->offset(5)->limit(4)->get(); 
+        $trendings = Proverb::select('proverb_text', 'created_at', 'context_id', 'slug')->offset(5)->limit(4)->get(); 
 
         $late = Proverb::select('proverb_text', 'created_at', 'author', 'slug')->limit(3)->get();
 
@@ -62,7 +73,8 @@ class ContextPage extends Component
             'tribes' => $tribes,
             'contexts' => $contexts,
             'trendings' => $trendings,
-            'late' => $late
+            'late' => $late,
+            'partcontext' => $this->partcontext
         ]);
     }
 }

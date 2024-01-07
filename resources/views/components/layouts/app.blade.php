@@ -14,13 +14,15 @@
 
 <body>
     <head>
-        <nav class="navbar navbar-expand-lg position-fixed w-100 py-3">
+        <nav class="navbar navbar-expand-lg position-fixed w-100 py-1 bg-white">
             <div class="container-fluid px-4">
                 <div class="row d-flex justify-content-center w-100 mx-auto">
                     <div class="icon col-6 col-lg-4 text-white">
-                        <a href="{{ url('/') }}" class="nav-link text-warning">AFROVERBAL</a>
+                        <a href="{{ url('/') }}" class="nav-link text-warning">
+                            <img src="{{ asset('/Assets/Images/name.png') }}" alt="">
+                        </a>
                     </div>
-                    <div class="menu-bar  d-lg-none col-6">
+                    <div class="menu-bar align-items-center  d-lg-none col-6">
                         <div class="bar-item barmain">
                             <div class="bar bar-one"></div>
                             <div class="bar bar-two"></div>
@@ -31,21 +33,15 @@
                         <div class="menu d-flex flex-row justify-content-between">
                             
                         </div>
-                        <div class="sub-menu d-flex flex-row justify-content-between">
-                            <form class="d-flex bg-white border" role="search">
-                                <button type="submit" class=" px-2 border-0 outline-0"><i class="fa-solid fa-search"></i></button>
-                                <input class="form-control search border-0" type="search" placeholder="Search items...." aria-label="Search">
-                            </form>
-                        </div>
+                        
+                        @livewire('search-function')
+
                     </div>
 
                     <div class="menu-wrapper small-view col-12 d-flex d-lg-none justify-content-between flex-column mt-3 py-5">
                         <div class="inner-menu-wrapper py-3">
                             <div>
-                                <form class="d-flex bg-white border" role="search">
-                                <button type="submit" class=" px-2 border-0 outline-0"><i class="fa-solid fa-search"></i></button>
-                                <input class="form-control search border-0" type="search" placeholder="Search items...." aria-label="Search">
-                            </form>
+                                @livewire('search-function')
                             </div>
                             
                         </div>
@@ -81,7 +77,7 @@
             </div>
         </div>
         <div class="bg-dark">
-            <h6 class="text-center text-sm-center m-0 p-3 text-light">COPYRIGHT INFO</h6>
+            <h6 style="font-size: small;" class="text-center text-sm-center m-0 p-3 text-secondary">COPYRIGHT INFO</h6>
         </div>
     </footer>
 

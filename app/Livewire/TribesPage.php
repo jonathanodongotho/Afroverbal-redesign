@@ -7,11 +7,15 @@ use App\Models\Signup;
 use App\Models\Context;
 use App\Models\Proverb;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 
 class TribesPage extends Component
 {
+
+    use WithPagination;
+
     #[Title('sort by tribe')]
 
     #[Validate('required|string|min:3|max:25')]
@@ -43,9 +47,17 @@ class TribesPage extends Component
         return $tribe->id;
     }
 
+    public $parttribe;
+
+    public function mount($tribe)
+    {
+        $this->parttribe = $tribe;
+
+    }
+
     public function render()
     {
-        $proverbs = Proverb::select('proverb_text', 'proverb_translation', 'context_id', 'tribe_id', 'created_at', 'author')
+        $proverbs = Proverb::select('proverb_text', 'proverb_translation', 'context_id', 'tribe_id', 'created_at', 'author', 'slug')
         ->where('tribe_id', $this->getTribeId())
         ->simplePaginate(5);
 
@@ -53,16 +65,17 @@ class TribesPage extends Component
 
         $contexts = Context::all();
 
-        $trendings = Proverb::select('proverb_text', 'created_at',)->offset(5)->limit(4)->get(); 
+        $trendings = Proverb::select('proverb_text', 'created_at', 'context_id', 'slug')->offset(5)->limit(4)->get(); 
 
-        $late = Proverb::select('proverb_text', 'created_at', 'author', 'slug')->limit(3)->get();
+        $late = Proverb::select('proverb_text', 'created_at', 'author', 'slug')->limit(3)->get();        
 
         return view('livewire.tribes-page', [
             'proverbs' => $proverbs,
             'tribes' => $tribes,
             'contexts' => $contexts,
             'trendings' => $trendings,
-            'late' => $late
+            'late' => $late,
+            'parttribe' => $this->parttribe
         ]);
     }
 }

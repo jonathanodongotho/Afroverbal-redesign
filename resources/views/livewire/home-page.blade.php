@@ -7,8 +7,8 @@
             </div>
             <div class="col-12 col-md-6 px-0 px-md-4">
                 <div class="d-flex justify-content-between">
-                    <a href="" class="btn context border-0 rounded-0 px-4 py-1">{{ $featured->context->context_name }}</a>
-                    <a href="" class="btn tribe border-0 rounded-0 px-4 py-1">{{ $featured->tribe->tribe_name }}</a>
+                    <a href="{{ url('proverbs/contexts', ['context' => $featured->context->context_name]) }}" class="btn context border-0 rounded-0 px-4 py-1">{{ $featured->context->context_name }}</a>
+                    <a href="{{ url('proverbs/tribes', ['tribe' => $featured->tribe->tribe_name]) }}" class="btn tribe border-0 rounded-0 px-4 py-1">{{ $featured->tribe->tribe_name }}</a>
                 </div>
                 <div class="py-3">
                     <h2>{{ $featured->proverb_text }}</h2>
@@ -37,27 +37,7 @@
             <h4 class="text-danger">TRENDING</h4>
         </div>
         <div class="col-12 intro-layer-two py-1 py-md-2 d-flex flex-wrap">
-            @foreach($trendings as $trending) 
-                    <div class="layer-two-item col-3">
-                        <div class="">
-                            <img src="Assets/Images/black.avif" alt="">
-                        </div>
-                        <div class="py-2">
-                            <!-- <div>
-                                <a href="" class="btn btn-sm context rounded-0 text-white px-4 py-1 btn-outline-danger"><b>LIFE</b></a>
-                            </div> -->
-                            <div>
-                                <a href="" class="layer-two-item-link">{{ $trending->proverb_text }}</a>
-                            </div>
-                            <div class="date_added">
-                                <small>
-                                    <i class="bi bi-clock"></i>
-                                    <span>{{ $trending->created_at->diffForHumans() }}</span>
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-            @endforeach 
+            @include('livewire.partials.trending') 
 
         </div>
     </div>
@@ -74,7 +54,7 @@
                     </div>
                     <div class="px-lg-3">
                         <div>
-                            <a href="" class="btn py-0 px-2 btn-sm context rounded-0">{{ $proverb->context->context_name }}</a>
+                            <a href="{{ url('proverbs/contexts', ['context' => $proverb->context->context_name]) }}" class="btn py-0 px-2 btn-sm context rounded-0">{{ $proverb->context->context_name }}</a>
                         </div>
                         <div class="py-1">
                             <h6>{{ $proverb->proverb_text }}</h6>
@@ -95,7 +75,7 @@
                             <p class="layer-two-item-link">{{ $proverb->proverb_translation }}</p>
                         </div>
                         <div>
-                            <a href="{{ url('proverbs', ['slug' => $proverb->slug]) }}" class="px-1 btn btn-sm read-more rounded-0"><b>READ MORE <i class="bi bi-arrow-right"></i></b></a>
+                            <a href="{{ url('proverb', ['slug' => $proverb->slug]) }}" class="px-1 btn btn-sm read-more rounded-0"><b>READ MORE <i class="bi bi-arrow-right"></i></b></a>
                         </div>
                     </div>
                 </div>
@@ -111,24 +91,8 @@
                 <h5>LATEST</h5>
             </div>
             
-            <div class="latest-items">
-                @foreach($late as $later)
-                    <a href="{{ url('proverb', ['slug' => $later->slug]) }}" class="latest-item nav-link text-secondary">
-                        <h6>{{ $later->proverb_text }}</h6>
-                        <div class="px-2">
-                            <small>
-                                <span class="">
-                                    <i class="fa-solid fa-pen"></i>
-                                    <span class="">{{ $later->author }}</span>
-                                </span>
-                                <span class="px-3">
-                                    <i class="fa-solid fa-clock"></i>
-                                    <span>{{ $later->created_at->diffForHumans() }}</span>
-                                </span>
-                            </small>
-                        </div>
-                    </a>
-                @endforeach
+            <div class="latest-items px-3 px-3">
+                @include('livewire.partials.recent')
             </div>
             
             <x-partials._signup />

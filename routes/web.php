@@ -26,7 +26,7 @@ Route::get('/', HomePage::class);
 
 Route::get('/proverbs', AllProverbs::class);
 
-Route::get('/proverb/sample-slug', DatailsPage::class);
+Route::get('/proverb/{slug}', DatailsPage::class);
 
 Route::get('/proverbs/tribes/{tribe}', TribesPage::class);
 

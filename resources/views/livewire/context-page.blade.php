@@ -10,11 +10,8 @@
                             <img src="{{ asset('Assets/Images/black.avif') }}" alt="">
                         </div>
                         <div class="py-2">
-                            <!-- <div>
-                                <a href="" class="btn btn-sm context rounded-0 text-white px-4 py-1 btn-outline-danger"><b>LIFE</b></a>
-                            </div> -->
                             <div>
-                                <a href="" class="layer-two-item-link">{{ $trending->proverb_text }}</a>
+                                <a href="{{ url('proverb', ['slug' => $trending->slug]) }}" class="layer-two-item-link">{{ $trending->proverb_text }}</a>
                             </div>
                             <div class="date_added">
                                 <small>
@@ -33,7 +30,9 @@
             <span>
                 <a href="{{ url('/proverbs') }}" class="btn rounded-0 btn-sm px-3 btn-secondary">All</a>
             </span>
-
+            <span class="bg-warning px-3 py-1">
+                {{ $partcontext }}
+            </span>
             <span>
                 <div class="dropdown">
                     <button class="btn rounded-0 btn-secondary dropdown-toggle btn-sm px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -57,8 +56,7 @@
                     </div>
                     <div class="px-lg-3">
                         <div>
-                            <a href="" class="btn py-0 px-2 btn-sm context rounded-0">{{ $proverb->context->context_name }}</a>
-                            {{ $proverb->tribe->tribe_name }}
+                            <a href="{{ url('proverbs/contexts', ['context' => $proverb->context->context_name]) }}" class="btn py-0 px-2 btn-sm context rounded-0">{{ $proverb->context->context_name }}</a>
                         </div>
                         <div class="py-1">
                             <h6>{{ $proverb->proverb_text }}</h6>
@@ -101,24 +99,8 @@
                 <h5>LATEST</h5>
             </div>
             
-            <div class="latest-items">
-                @foreach($late as $later)
-                    <a href="{{ url('proverb', ['slug' => $later->slug]) }}" class="latest-item nav-link text-secondary">
-                        <h6>{{ $later->proverb_text }}</h6>
-                        <div class="px-2">
-                            <small>
-                                <span class="">
-                                    <i class="fa-solid fa-pen"></i>
-                                    <span class="">{{ $later->author }}</span>
-                                </span>
-                                <span class="px-3">
-                                    <i class="fa-solid fa-clock"></i>
-                                    <span>{{ $later->created_at->diffForHumans() }}</span>
-                                </span>
-                            </small>
-                        </div>
-                    </a>
-                @endforeach
+            <div class="latest-items px-3 px-3">
+                @include('livewire.partials.recent')
             </div>
 
             <x-partials._signup />

@@ -52,7 +52,7 @@ class AllProverbs extends Component
 
     public function render()
     {
-        $proverbs = Proverb::select('proverb_text', 'proverb_translation', 'context_id', 'tribe_id', 'created_at', 'author')
+        $proverbs = Proverb::select('proverb_text', 'proverb_translation', 'context_id', 'tribe_id', 'created_at', 'author', 'slug')
         ->when($this->tribe_id, function($query)
         {
             $query->where('tribe_id', $this->tribe_id);
@@ -71,10 +71,16 @@ class AllProverbs extends Component
 
         $contexts = Context::all();
 
+        $trendings = Proverb::select('proverb_text', 'created_at', 'context_id', 'slug')->offset(5)->limit(4)->get(); 
+
+        $late = Proverb::select('proverb_text', 'created_at', 'author', 'slug')->limit(3)->get();
+
         return view('livewire.all-proverbs', [
             'proverbs' => $proverbs,
             'tribes' => $tribes,
-            'contexts' => $contexts
+            'contexts' => $contexts,
+            'trendings' => $trendings,
+            'late' => $late
         ]);
     }
 }
